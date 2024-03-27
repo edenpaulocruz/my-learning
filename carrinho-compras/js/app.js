@@ -1,4 +1,17 @@
 const listaProdutos = document.getElementById('lista-produtos');
+
+let carrinho = [
+  "Fone de ouvido - R$100",
+  "Celular - R$1400",
+  "Oculus VR - R$5000"
+];
+
+carrinho.forEach( item => {
+  let nome = item.split(' - ')[0]
+  let preco = parseInt(item.split(' - ')[1].replace('R$', ''))
+  console.log(nome, preco);
+})
+
 const section = document.createElement('section');
 const section2 = document.createElement('section');
 
