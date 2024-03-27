@@ -9,7 +9,9 @@ function atualizaCarrinho() {
 
     section.classList.add('carrinho__produtos__produto');
     section.innerHTML = `
-      <span class="texto-azul">${item.quantidade}x</span> ${item.nome} <span class="texto-azul">R$${item.preco}</span>
+      <span class="texto-azul">${item.quantidade}x</span>
+      &nbsp;${item.nome}&nbsp;
+      <span class="texto-azul">R$${item.preco * item.quantidade}</span>
     `;
 
     listaProdutos.appendChild(section);
