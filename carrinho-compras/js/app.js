@@ -15,6 +15,7 @@ function adicionar() {
     adicionaProduto(nomeProduto, precoProduto, quantidadeProduto);
 
   atualizaCarrinho();
+  limpaQuantidade();
 }
 
 function adicionaProduto(nome, preco, quantidade) {
@@ -45,6 +46,10 @@ function atualizaCarrinho() {
     listaProdutos.appendChild(section);
   });
   valorTotal.innerHTML = `R$${calculaTotal()}`;
+}
+
+function limpaQuantidade() {
+  document.getElementById('quantidade').value = '';
 }
 
 function removeProdutosZerados() {
