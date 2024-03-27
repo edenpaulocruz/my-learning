@@ -1,10 +1,6 @@
 const listaProdutos = document.getElementById('lista-produtos');
 
-let carrinho = [
-  "Fone de ouvido - R$100",
-  "Celular - R$1400",
-  "Oculus VR - R$5000"
-];
+const carrinho = [];
 
 carrinho.forEach( item => {
   let nome = item.split(' - ')[0]
@@ -18,3 +14,10 @@ carrinho.forEach( item => {
 
   listaProdutos.appendChild(section);
 })
+
+function adicionar() {
+  console.log(
+    document.getElementById('produto').value,
+    document.getElementById('quantidade').value
+  );
+}
