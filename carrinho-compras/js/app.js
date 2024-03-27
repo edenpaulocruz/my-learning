@@ -1,25 +1,27 @@
 const listaProdutos = document.getElementById('lista-produtos');
-
 const carrinho = [];
 
-carrinho.forEach( item => {
-  let nome = item.split(' - ')[0]
-  let preco = parseInt(item.split(' - ')[1].replace('R$', ''))
-  let section = document.createElement('section');
+function atualizaCarrinho() {
+  listaProdutos.innerHTML = '';
 
-  section.classList.add('carrinho__produtos__produto');
-  section.innerHTML = `
-    <span class="texto-azul">1x</span> ${nome} <span class="texto-azul">R$${preco}</span>
-  `;
+  carrinho.forEach( item => {
+    const section = document.createElement('section');
 
-  listaProdutos.appendChild(section);
-})
+    section.classList.add('carrinho__produtos__produto');
+    section.innerHTML = `
+      <span class="texto-azul">${item.quantidade}x</span> ${item.nome} <span class="texto-azul">R$${item.preco}</span>
+    `;
+
+    listaProdutos.appendChild(section);
+  });
+}
 
 function adicionar() {
-  let valorProduto = document.getElementById('produto').value;
-  let quantidadeProduto = parseInt(document.getElementById('quantidade').value);
-  let nomeProduto = valorProduto.split(' - ')[0];
-  let precoProduto = parseInt(valorProduto.split(' - ')[1].replace('R$', ''));
+  const valorProduto = document.getElementById('produto').value;
+  const quantidadeProduto = parseInt(document.getElementById('quantidade').value);
+  const nomeProduto = valorProduto.split(' - ')[0];
+  const precoProduto = parseInt(valorProduto.split(' - ')[1].replace('R$', ''));
+
   carrinho.push(
     {
       nome: nomeProduto,
@@ -27,5 +29,6 @@ function adicionar() {
       quantidade: quantidadeProduto
     }
   );
-  console.log(carrinho);
+
+  atualizaCarrinho();
 }
