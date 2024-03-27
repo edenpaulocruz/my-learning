@@ -1,4 +1,5 @@
 const listaProdutos = document.getElementById('lista-produtos');
+const valorTotal = document.getElementById('valor-total');
 const carrinho = [];
 
 function atualizaCarrinho() {
@@ -15,7 +16,12 @@ function atualizaCarrinho() {
     `;
 
     listaProdutos.appendChild(section);
+    valorTotal.innerHTML = `R$${calculaTotal()}`;
   });
+}
+
+function calculaTotal() {
+  return carrinho.reduce((total, item) => total + item.quantidade * item.preco, 0)
 }
 
 function adicionar() {
