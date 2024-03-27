@@ -16,8 +16,16 @@ carrinho.forEach( item => {
 })
 
 function adicionar() {
-  console.log(
-    document.getElementById('produto').value,
-    document.getElementById('quantidade').value
+  let valorProduto = document.getElementById('produto').value;
+  let quantidadeProduto = parseInt(document.getElementById('quantidade').value);
+  let nomeProduto = valorProduto.split(' - ')[0];
+  let precoProduto = parseInt(valorProduto.split(' - ')[1].replace('R$', ''));
+  carrinho.push(
+    {
+      nome: nomeProduto,
+      preco: precoProduto,
+      quantidade: quantidadeProduto
+    }
   );
+  console.log(carrinho);
 }
