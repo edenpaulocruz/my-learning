@@ -18,6 +18,12 @@ function adicionar() {
   limpaQuantidade();
 }
 
+function limpar() {
+  carrinho.length = 0;
+
+  atualizaCarrinho();
+}
+
 function adicionaProduto(nome, preco, quantidade) {
   carrinho.push(
     {
