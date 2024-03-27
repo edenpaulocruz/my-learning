@@ -8,7 +8,7 @@ function adicionar() {
   const nomeProduto = valorProduto.split(' - ')[0];
   const precoProduto = parseInt(valorProduto.split(' - ')[1].replace('R$', ''));
 
-  const produtoNoCarrinho = carrinho.find( produto => produto.nome === nomeProduto);
+  const produtoNoCarrinho = carrinho.find(produto => produto.nome === nomeProduto);
 
   produtoNoCarrinho ?
     produtoNoCarrinho.quantidade += quantidadeProduto :
@@ -24,11 +24,13 @@ function adicionaProduto(nome, preco, quantidade) {
       preco: preco,
       quantidade: quantidade
     }
-  )
+  );
 }
 
 function atualizaCarrinho() {
   listaProdutos.innerHTML = '';
+
+  removeProdutosZerados();
 
   carrinho.forEach( item => {
     const section = document.createElement('section');
@@ -41,10 +43,25 @@ function atualizaCarrinho() {
     `;
 
     listaProdutos.appendChild(section);
-    valorTotal.innerHTML = `R$${calculaTotal()}`;
   });
+  valorTotal.innerHTML = `R$${calculaTotal()}`;
+}
+
+function removeProdutosZerados() {
+  let indice = carrinho.lastIndexOf(carrinho.find(produto => produto.quantidade <= 0));
+
+  if (indice < 0) return;
+
+  carrinho.splice(indice, 1);
+  removeProdutosZerados();
 }
 
 function calculaTotal() {
-  return carrinho.reduce((total, item) => total + item.quantidade * item.preco, 0)
+  const total = carrinho.reduce(
+    (total, item) => total + item.quantidade * item.preco, 0
+  );
+
+  if (total <= 0) return '';
+
+  return total;
 }
