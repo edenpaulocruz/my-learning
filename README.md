@@ -7,3 +7,5 @@ Decidi criar este repositório para organizar e centralizar os projetos de estud
 [Carrinho de Compras](./carrinho-compras/)
 
 [Calculadora Partidas Ranqueadas](./calculadora-partidas-ranqueadas/)
+
+[Formação Ruby Developer - DIO](./formacao_ruby_developer_dio/)
