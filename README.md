@@ -9,3 +9,5 @@ Decidi criar este repositório para organizar e centralizar os projetos de estud
 [Calculadora Partidas Ranqueadas](./calculadora-partidas-ranqueadas/)
 
 [Formação Ruby Developer - DIO](./formacao_ruby_developer_dio/)
+
+[Natural ou Fake Natty? Como Vencer na Era das IAs Generativas! - DIO](./lab-natty-or-not/)
